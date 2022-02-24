@@ -2,9 +2,17 @@
 
 I tried out some of the concepts introduced in the Machine Vision lecture in winter term 2021/2022. The results are brought together in this repos.
 
+## Structure
+
+The repo is structured the following way:
+
+* edge_detection: Relevant files associated with the Edge Detection discussed in Chapter 3
+* resources: Data used in the scripts (mainly images)
+* results: Presents some of the outcomes
+
 ## Results
 
-Here are some of the results obtained from the different methods
+Here are some of the results obtained from the different methods.
 
 ### Canny Operator
 
