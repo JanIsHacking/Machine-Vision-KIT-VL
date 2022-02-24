@@ -10,3 +10,4 @@ Here are some of the results obtained from the different methods
 
 ![alt text](https://github.com/JanIsHacking/Machine-Vision-KIT-VL/blob/master/results/comparison_scrambled_2.png?raw=true)
 
+![alt text](https://github.com/JanIsHacking/Machine-Vision-KIT-VL/blob/master/results/comparison_smart_building.jpg?raw=true)
