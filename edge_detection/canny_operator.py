@@ -26,7 +26,7 @@ def main():
     img = Image.open(bottom1_path)
 
     gs_img = ImageOps.grayscale(img)
-    # gs_img.show()
+    gs_img.show()
 
     img_filt = canny_edge_detection(gs_img)
 
