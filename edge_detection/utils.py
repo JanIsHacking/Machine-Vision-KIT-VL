@@ -70,7 +70,6 @@ def double_threshhold(gs_array: np.ndarray):
 
 
 def check_unsures(unsures: list, gs_array: np.ndarray):
-    print("Number of unsures: ", len(unsures))
     change_counter = 0  # measures, if at least one pixel has been converted this iteration
     for unsure in unsures:
         uhor, uver = unsure
