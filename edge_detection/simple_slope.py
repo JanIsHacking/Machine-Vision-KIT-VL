@@ -36,7 +36,7 @@ def prepare_slope_array(x):
 
 
 def main():
-    img = Image.open("resources/rubiks_cube/top_scrambled_2.jpeg")
+    img = Image.open("resources/rubiks_cube/scrambled_2.jpeg")
 
     gs_img = ImageOps.grayscale(img)
     gs_img.show()

@@ -1,10 +1,10 @@
-from PIL import Image, ImageOps
+from PIL import ImageOps
 
 from utils import *
 
 
-def canny_edge_detection(gs_img: Image):
-    print('Starting the canny operator.')
+def canny_edge_detection(gs_img: Image, thresholds: list):
+    print('Starting the canny operator ...')
 
     # smoothing image with Gaussian filter
     gs_img_smoothed = gaussian_smoothing(gs_img)
@@ -14,21 +14,19 @@ def canny_edge_detection(gs_img: Image):
     gs_array_filt = sobel_grey_level_gradient(gs_img_smoothed)
 
     # Apply non-maxima suppression
-    gs_array_suppressed = non_maxima_suppression(gs_array_filt)  # includes double threshholding
+    gs_array_suppressed = non_maxima_suppression(gs_array_filt, thresholds)  # includes double thresholding
 
     return Image.fromarray(gs_array_suppressed)
 
 
 def main():
-    scrambled2_path = "../resources/rubiks_cube/laboratory_images/top_scrambled_2.jpeg"
-    armchair_patch = "../resources/armchair_at_beach.jpg"
-    bottom1_path = "../resources/rubiks_cube/real_world_images/bottom_1.png"
-    img = Image.open(bottom1_path)
+    selector = "smart_building"
+    img = Image.open(path[selector])
 
     gs_img = ImageOps.grayscale(img)
     gs_img.show()
 
-    img_filt = canny_edge_detection(gs_img)
+    img_filt = canny_edge_detection(gs_img, canny_thresholds[selector])
 
     img_filt.show()
 
