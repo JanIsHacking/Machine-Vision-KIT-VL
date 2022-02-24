@@ -1,4 +1,3 @@
-from numpy import asarray
 from PIL import Image, ImageOps
 
 from utils import *
