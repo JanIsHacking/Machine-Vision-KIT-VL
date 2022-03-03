@@ -19,17 +19,12 @@ def canny_edge_detection(gs_img: Image, thresholds: list):
     return Image.fromarray(gs_array_suppressed)
 
 
-def main():
-    selector = "smart_building"
-    img = Image.open(path[selector])
+selector = "smart_building"
+img = Image.open(path[selector])
 
-    gs_img = ImageOps.grayscale(img)
-    gs_img.show()
+gs_img = ImageOps.grayscale(img)
+gs_img.show()
 
-    img_filt = canny_edge_detection(gs_img, canny_thresholds[selector])
+img_filt = canny_edge_detection(gs_img, canny_thresholds[selector])
 
-    img_filt.show()
-
-
-if __name__ == '__main__':
-    main()
+img_filt.show()

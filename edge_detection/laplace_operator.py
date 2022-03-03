@@ -15,17 +15,12 @@ def laplacian_of_gaussian_edge_detection(gs_img: Image, threshold: int):
     return gs_img_thresh
 
 
-def main():
-    selector = "smart_building"
-    img = Image.open(path[selector])
+selector = "smart_building"
+img = Image.open(path[selector])
 
-    gs_img = ImageOps.grayscale(img)
-    gs_img.show()
+gs_img = ImageOps.grayscale(img)
+gs_img.show()
 
-    img_filt = laplacian_of_gaussian_edge_detection(gs_img, log_thresholds[selector])
+img_filt = laplacian_of_gaussian_edge_detection(gs_img, log_thresholds[selector])
 
-    img_filt.show()
-
-
-if __name__ == '__main__':
-    main()
+img_filt.show()

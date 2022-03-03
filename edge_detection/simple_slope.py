@@ -35,27 +35,22 @@ def prepare_slope_array(x):
     return x
 
 
-def main():
-    img = Image.open("resources/rubiks_cube/scrambled_2.jpeg")
+img = Image.open("resources/rubiks_cube/scrambled_2.jpeg")
 
-    gs_img = ImageOps.grayscale(img)
-    gs_img.show()
+gs_img = ImageOps.grayscale(img)
+gs_img.show()
 
-    gs_array = asarray(gs_img)
+gs_array = asarray(gs_img)
 
-    hor_slope = np.zeros([gs_array.shape[0], gs_array.shape[1]])
-    ver_slope = np.zeros([gs_array.shape[0], gs_array.shape[1]])
+hor_slope = np.zeros([gs_array.shape[0], gs_array.shape[1]])
+ver_slope = np.zeros([gs_array.shape[0], gs_array.shape[1]])
 
-    for i in range(gs_array.shape[0]):
-        for j in range(gs_array.shape[1]):
-            hor_slope[i][j] = get_horizontal_slope(gs_array, i, j)
-            ver_slope[i][j] = get_vertical_slope(gs_array, i, j)
+for i in range(gs_array.shape[0]):
+    for j in range(gs_array.shape[1]):
+        hor_slope[i][j] = get_horizontal_slope(gs_array, i, j)
+        ver_slope[i][j] = get_vertical_slope(gs_array, i, j)
 
-    total_slope = prepare_slope_array(hor_slope + ver_slope)
-    image_total_slope = Image.fromarray(total_slope)
+total_slope = prepare_slope_array(hor_slope + ver_slope)
+image_total_slope = Image.fromarray(total_slope)
 
-    image_total_slope.show()
-
-
-if __name__ == '__main__':
-    main()
+image_total_slope.show()
