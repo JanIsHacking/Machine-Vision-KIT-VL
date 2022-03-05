@@ -38,5 +38,6 @@ path = {
     "lab_scrambled_3": "../resources/rubiks_cube/laboratory_images/scrambled_3.jpeg",
     "lab_solved_1": "../resources/rubiks_cube/laboratory_images/solved_1.jpeg",
     "lab_solved_2": "../resources/rubiks_cube/laboratory_images/solved_2.jpeg",
-    "real_bottom1": "../resources/rubiks_cube/real_world_images/scrambled_1.png"
+    "real_bottom1": "../resources/rubiks_cube/real_world_images/scrambled_1.png",
+    "lab_scrambled_2_edges": "../resources/rubiks_cube/laboratory_images/scrambled_2_edges.png"
 }

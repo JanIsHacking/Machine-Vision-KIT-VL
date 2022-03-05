@@ -5,11 +5,11 @@ from src.data.variables import canny_thresholds
 from src.data.constants import path
 
 
-def canny_edge_detection(gs_img: Image, thresholds: list):
+def canny_edge_detection(gsimg: Image, thresholds: list):
     print('Starting the canny operator ...')
 
     # smoothing image with Gaussian filter
-    gs_img_smoothed = gaussian_smoothing(gs_img)
+    gs_img_smoothed = gaussian_smoothing(gsimg)
     gs_img_smoothed.show()
 
     # Compute grey level gradient with Sobel/Prewitt mask
@@ -21,7 +21,7 @@ def canny_edge_detection(gs_img: Image, thresholds: list):
     return Image.fromarray(gs_array_suppressed)
 
 
-selector = "armchair_at_beach"
+selector = "lab_scrambled_2"
 img = Image.open(path[selector])
 
 gs_img = ImageOps.grayscale(img)
