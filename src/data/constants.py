@@ -33,6 +33,7 @@ path = {
     "ship_full_moon": "../resources/random_images/ship_full_moon.jpg",
     "smart_building": "../resources/random_images/smart_building.jpg",
     "tiger_bird": "../resources/random_images/tiger_bird.jpg",
+    "headphones_case": "../resources/random_images/headphones_case_edges.png",
     "lab_scrambled_1": "../resources/rubiks_cube/laboratory_images/scrambled_1.jpeg",
     "lab_scrambled_2": "../resources/rubiks_cube/laboratory_images/scrambled_2.jpeg",
     "lab_scrambled_3": "../resources/rubiks_cube/laboratory_images/scrambled_3.jpeg",

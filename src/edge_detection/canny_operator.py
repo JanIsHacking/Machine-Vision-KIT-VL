@@ -21,7 +21,7 @@ def canny_edge_detection(gsimg: Image, thresholds: list):
     return Image.fromarray(gs_array_suppressed)
 
 
-selector = "lab_scrambled_2"
+selector = "headphones_case"
 img = Image.open(path[selector])
 
 gs_img = ImageOps.grayscale(img)
@@ -30,3 +30,4 @@ gs_img.show()
 img_filt = canny_edge_detection(gs_img, canny_thresholds[selector])
 
 img_filt.show()
+# img_filt.convert("L").save(f"{selector}_edges.png")
