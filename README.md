@@ -27,3 +27,7 @@ Here are some of the results obtained from the different methods.
 ![alt text](https://github.com/JanIsHacking/Machine-Vision-KIT-VL/blob/master/src/resources/results/comparison_solved_2_HCD.png?raw=true)
 
 ![alt text](https://github.com/JanIsHacking/Machine-Vision-KIT-VL/blob/master/src/resources/results/comparison_tiger_bird_HCD.png?raw=true)
+
+### Combination of Canny Operator for Edge Detection and Hough Transform for Line Fitting
+
+![alt text](https://github.com/JanIsHacking/Machine-Vision-KIT-VL/blob/master/src/resources/results/comparison_headphones_case.png?raw=true)
