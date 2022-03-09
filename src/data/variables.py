@@ -68,3 +68,17 @@ hough_thresholds = {
     "lab_solved_2": None,
     "real_bottom1": None
 }
+
+ccl_thresholds = {
+    "armchair_at_beach": None,
+    "ship_full_moon": None,
+    "smart_building": None,
+    "tiger_bird": None,
+    "headphones_case": None,
+    "lab_scrambled_1": None,
+    "lab_scrambled_2": 10,
+    "lab_scrambled_3": None,
+    "lab_solved_1": None,
+    "lab_solved_2": None,
+    "real_bottom1": None
+}
