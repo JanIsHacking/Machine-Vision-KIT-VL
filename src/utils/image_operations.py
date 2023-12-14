@@ -18,11 +18,16 @@ def gaussian_smoothing(gs_img: Image):
     return Image.fromarray(mask_convolution(gs_array, gaussian_mask))
 
 
-# expects an image as input, returns a 3D array with the following axes
-# x: pixel position in horizontal direction
-# y: pixel position in vertical direction
-# z: gradient value [0] and gradient direction (in radians) [1]
 def prewitt_grey_level_gradient(gs_img: Image):
+    """
+    Computes the grey level gradient of a given image using the prewitt mask
+
+    :param gs_img: input image
+    :return:   3D array with the following axes
+                x: pixel position in horizontal direction
+                y: pixel position in vertical direction
+                z: gradient value [0] and gradient direction (in radians) [1]
+    """
     gs_array = asarray(gs_img)
 
     mask_hor = prewitt_mask[0]
@@ -40,11 +45,16 @@ def prewitt_grey_level_gradient(gs_img: Image):
     return gs_array_filt
 
 
-# expects an image as input, returns a 3D array with the following axes
-# x: pixel position in horizontal direction
-# y: pixel position in vertical direction
-# z: gradient value [0] and gradient direction (in radians) [1]
 def sobel_grey_level_gradient(gs_img: Image):
+    """
+    Computes the grey level gradient of a given image using the sobel mask
+
+    :param gs_img: input image
+    :return:   3D array with the following axes
+                x: pixel position in horizontal direction
+                y: pixel position in vertical direction
+                z: gradient value [0] and gradient direction (in radians) [1]
+    """
     gs_array = asarray(gs_img)
 
     mask_hor = sobel_mask[0]
@@ -234,16 +244,27 @@ def diss_eig(hor_deriv: np.ndarray, ver_deriv: np.ndarray, x, y):
 
 
 def calculate_dissimilarity(gs_img: Image, theta: float, alpha: float):
+    # Convert the input grayscale image to a NumPy array
     gs_array = asarray(gs_img)  # n x m
-    hor_deriv = horizontal_derivative(gs_array)   # (n - 1) x (m - 1)
+
+    # Compute horizontal and vertical derivatives of the grayscale image
+    hor_deriv = horizontal_derivative(gs_array)  # (n - 1) x (m - 1)
     ver_deriv = vertical_derivative(gs_array)  # (n - 1) x (m - 1)
+
+    # Initialize a result matrix with zeros
     result = np.zeros((gs_array.shape[0] - 4, gs_array.shape[1] - 4))  # (n - 2) x (m - 2)
 
+    # Iterate through the result matrix
     for i in range(result.shape[0]):
         for j in range(result.shape[1]):
+            # Compute eigenvalues using the function diss_eig
             eigvals = diss_eig(hor_deriv, ver_deriv, i + 1, j + 1)
+
+            # Extract the maximum and minimum eigenvalues
             lam1 = amax(eigvals)
             lam2 = amin(eigvals)
+
+            # Check dissimilarity conditions and assign values to the result matrix
             if lam1 + lam2 < theta:
                 result[i][j] = 0  # neither corner, nor edge
             elif lam2 > alpha * lam1:
@@ -251,9 +272,11 @@ def calculate_dissimilarity(gs_img: Image, theta: float, alpha: float):
             else:
                 result[i][j] = 1  # edge
 
-        # Just for progress update purposes
+        # Print progress update (percentage completion)
         if i == result.shape[0] - 1:
             print()
         else:
             sys.stdout.write('\r' + f"Progress: {math.ceil(100 * i / result.shape[0])} %")
+
+    # Return the calculated dissimilarity matrix
     return result
