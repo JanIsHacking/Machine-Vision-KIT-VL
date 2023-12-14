@@ -1,10 +1,8 @@
 import math
-import time
 
-from PIL import Image, ImageOps
+from PIL import Image
 import numpy as np
 from datetime import datetime
-from numpy import asarray
 
 from src.data.constants import path
 from src.data.variables import ccl_thresholds
@@ -12,7 +10,7 @@ from src.data.variables import ccl_thresholds
 
 def connected_components_labeling(c_img: Image, threshold: float):
     # Convert the input image to a NumPy array
-    c_array = asarray(c_img)
+    c_array = np.array(c_img)
 
     # Create an empty array to store segment labels, initialized with -1
     seg_array = np.empty((c_array.shape[0], c_array.shape[1]), dtype=int)
